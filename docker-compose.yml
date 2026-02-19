@@ -1,0 +1,17 @@
+services:
+  jenkins-service:
+    build: .
+    networks:
+      - jenkins-network
+    container_name: jenkins-service
+    ports:
+      - "6080:8080"
+      - "50000:50000" # Jenkins agent communication
+    volumes:
+      - /var/jenkins_home:/var/jenkins_home
+    restart: unless-stopped
+volumes:
+  jenkins_home:
+networks:
+  jenkins-network:
+    external: true
