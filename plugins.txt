@@ -17,7 +17,7 @@ credentials
 dark-theme
 display-url-api
 docker-commons
-docker-pipeline
+docker-workflow
 durable-task
 echarts-api
 eddsa-api
