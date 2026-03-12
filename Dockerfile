@@ -8,10 +8,10 @@ USER root
 COPY plugins.txt /usr/share/jenkins/ref/plugins.txt
 RUN jenkins-plugin-cli --plugin-file /usr/share/jenkins/ref/plugins.txt
 
-# Install Docker CLI (optional - comment/remove if not needed)
-# RUN apt-get update && \
-#     apt-get install -y docker.io && \
-#     apt-get clean
+# Install Docker CLI
+RUN apt-get update && \
+    apt-get install -y docker.io && \
+    apt-get clean
 
 # Set permissions or other setup here if needed
 
