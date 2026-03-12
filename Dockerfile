@@ -14,7 +14,7 @@ RUN apt-get update && \
     apt-get clean
 
 # Add jenkins user to the docker group
-RUN groupadd -for docker && usermod -aG docker jenkins
+RUN groupadd -f docker && usermod -aG docker jenkins
 
 # Set permissions or other setup here if needed
 
