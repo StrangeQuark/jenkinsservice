@@ -13,9 +13,6 @@ RUN apt-get update && \
     apt-get install -y docker.io && \
     apt-get clean
 
-# Add jenkins user to the docker group
-RUN groupadd -f docker && usermod -aG docker jenkins
-
 # Set permissions or other setup here if needed
 
 # Switch back to Jenkins user
