@@ -10,6 +10,8 @@ services:
       - "50000:50000" # Jenkins agent communication
     volumes:
       - jenkins_home:/var/jenkins_home
+    environment:
+      - CASC_JENKINS_CONFIG=/var/jenkins_home/casc.yaml
     restart: unless-stopped
 volumes:
   jenkins_home:
