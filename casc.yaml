@@ -1,0 +1,286 @@
+jenkins:
+  systemMessage: "MSINIT Jenkins initialized via JCasC"
+
+  numExecutors: 2
+
+# credentials:
+#   system:
+#     domainCredentials:
+#       - credentials:
+#           - usernamePassword:
+#               id: "github-creds"
+#               username: "YOUR_GITHUB_USERNAME"
+#               password: "YOUR_GITHUB_PASSWORD"
+#               description: "GitHub PAT"
+
+jobs:
+  # Integration function start: Auth
+  - script: >
+      multibranchPipelineJob('authservice') {
+          displayName('authservice')
+          branchSources {
+              github {
+                  id('authservice-github-source')
+                  repoOwner('StrangeQuark')
+                  repository('authservice')
+                  includes('main')
+                  // scanCredentialsId('github-creds')
+              }
+          }
+          orphanedItemStrategy {
+              discardOldItems {
+                  numToKeep(2)
+              }
+          }
+          triggers {
+              periodicFolderTrigger {
+                  interval('1h')
+              }
+          }
+          factory {
+              workflowBranchProjectFactory {
+                  scriptPath('Jenkinsfile')
+              }
+          }
+      }
+  # Integration function end: Auth
+  # Integration function start: Email
+  - script: >
+      multibranchPipelineJob('emailservice') {
+          displayName('emailservice')
+          branchSources {
+              github {
+                  id('emailservice-github-source')
+                  repoOwner('StrangeQuark')
+                  repository('emailservice')
+                  includes('main')
+                  // scanCredentialsId('github-creds')
+              }
+          }
+          orphanedItemStrategy {
+              discardOldItems {
+                  numToKeep(2)
+              }
+          }
+          triggers {
+              periodicFolderTrigger {
+                  interval('1h')
+              }
+          }
+          factory {
+              workflowBranchProjectFactory {
+                  scriptPath('Jenkinsfile')
+              }
+          }
+      }
+  # Integration function end: Email
+  # Integration function start: File
+  - script: >
+      multibranchPipelineJob('fileservice') {
+          displayName('fileservice')
+          branchSources {
+              github {
+                  id('fileservice-github-source')
+                  repoOwner('StrangeQuark')
+                  repository('fileservice')
+                  includes('main')
+                  // scanCredentialsId('github-creds')
+              }
+          }
+          orphanedItemStrategy {
+              discardOldItems {
+                  numToKeep(2)
+              }
+          }
+          triggers {
+              periodicFolderTrigger {
+                  interval('1h')
+              }
+          }
+          factory {
+              workflowBranchProjectFactory {
+                  scriptPath('Jenkinsfile')
+              }
+          }
+      }
+  # Integration function end: File
+  # Integration function start: Gateway
+  - script: >
+      multibranchPipelineJob('gatewayservice') {
+          displayName('gatewayservice')
+          branchSources {
+              github {
+                  id('gatewayservice-github-source')
+                  repoOwner('StrangeQuark')
+                  repository('gatewayservice')
+                  includes('main')
+                  // scanCredentialsId('github-creds')
+              }
+          }
+          orphanedItemStrategy {
+              discardOldItems {
+                  numToKeep(2)
+              }
+          }
+          triggers {
+              periodicFolderTrigger {
+                  interval('1h')
+              }
+          }
+          factory {
+              workflowBranchProjectFactory {
+                  scriptPath('Jenkinsfile')
+              }
+          }
+      }
+  # Integration function end: Gateway
+  # Integration function start: Logger
+  - script: >
+      multibranchPipelineJob('loggerservice') {
+          displayName('loggerservice')
+          branchSources {
+              github {
+                  id('loggerservice-github-source')
+                  repoOwner('StrangeQuark')
+                  repository('loggerservice')
+                  includes('main')
+                  // scanCredentialsId('github-creds')
+              }
+          }
+          orphanedItemStrategy {
+              discardOldItems {
+                  numToKeep(2)
+              }
+          }
+          triggers {
+              periodicFolderTrigger {
+                  interval('1h')
+              }
+          }
+          factory {
+              workflowBranchProjectFactory {
+                  scriptPath('Jenkinsfile')
+              }
+          }
+      }
+  # Integration function end: Logger
+  # Integration function start: React
+  - script: >
+      multibranchPipelineJob('reactservice') {
+          displayName('reactservice')
+          branchSources {
+              github {
+                  id('reactservice-github-source')
+                  repoOwner('StrangeQuark')
+                  repository('reactservice')
+                  includes('main')
+                  // scanCredentialsId('github-creds')
+              }
+          }
+          orphanedItemStrategy {
+              discardOldItems {
+                  numToKeep(2)
+              }
+          }
+          triggers {
+              periodicFolderTrigger {
+                  interval('1h')
+              }
+          }
+          factory {
+              workflowBranchProjectFactory {
+                  scriptPath('Jenkinsfile')
+              }
+          }
+      }
+  # Integration function end: React
+  # Integration function start: Telemetry
+  - script: >
+      multibranchPipelineJob('telemetryservice') {
+          displayName('telemetryservice')
+          branchSources {
+              github {
+                  id('telemetryservice-github-source')
+                  repoOwner('StrangeQuark')
+                  repository('telemetryservice')
+                  includes('main')
+                  // scanCredentialsId('github-creds')
+              }
+          }
+          orphanedItemStrategy {
+              discardOldItems {
+                  numToKeep(2)
+              }
+          }
+          triggers {
+              periodicFolderTrigger {
+                  interval('1h')
+              }
+          }
+          factory {
+              workflowBranchProjectFactory {
+                  scriptPath('Jenkinsfile')
+              }
+          }
+      }
+  # Integration function end: Telemetry
+  # Integration function start: Test
+  - script: >
+      multibranchPipelineJob('testservice') {
+          displayName('testservice')
+          branchSources {
+              github {
+                  id('testservice-github-source')
+                  repoOwner('StrangeQuark')
+                  repository('testservice')
+                  includes('main')
+                  // scanCredentialsId('github-creds')
+              }
+          }
+          orphanedItemStrategy {
+              discardOldItems {
+                  numToKeep(2)
+              }
+          }
+          triggers {
+              periodicFolderTrigger {
+                  interval('1h')
+              }
+          }
+          factory {
+              workflowBranchProjectFactory {
+                  scriptPath('Jenkinsfile')
+              }
+          }
+      }
+  # Integration function end: Test
+  # Integration function start: Vault
+  - script: >
+      multibranchPipelineJob('vaultservice') {
+          displayName('vaultservice')
+          branchSources {
+              github {
+                  id('vaultservice-github-source')
+                  repoOwner('StrangeQuark')
+                  repository('vaultservice')
+                  includes('main')
+                  // scanCredentialsId('github-creds')
+              }
+          }
+          orphanedItemStrategy {
+              discardOldItems {
+                  numToKeep(2)
+              }
+          }
+          triggers {
+              periodicFolderTrigger {
+                  interval('1h')
+              }
+          }
+          factory {
+              workflowBranchProjectFactory {
+                  scriptPath('Jenkinsfile')
+              }
+          }
+      }
+  # Integration function end: Vault

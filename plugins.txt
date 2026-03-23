@@ -12,6 +12,7 @@ cloudbees-folder
 commons-compress-api
 commons-lang3-api
 commons-text-api
+configuration-as-code
 credentials-binding
 credentials
 dark-theme
@@ -37,6 +38,7 @@ jakarta-mail-api
 javax-activation-api
 jaxb
 jjwt-api
+job-dsl
 joda-time-api
 jquery3-api
 json-api
