@@ -12,6 +12,19 @@ jenkins:
 #               username: "${GITHUB_USERNAME}"
 #               password: "${GITHUB_TOKEN}"
 #               description: "GitHub PAT"
+#           - file:
+#               id: "vault-env"
+#               fileName: "vaultservice.env"
+#               secretBytes: "${VAULT_ENV_FILE_BASE64}"
+#               description: "Env file for bootstrapping vaultservice"
+#           - string:
+#               id: "VAULT_URL"
+#               secret: "${VAULT_URL}"
+#               description: "Base URL for vaultservice"
+#           - string:
+#               id: "CICD_TOKEN"
+#               secret: "${CICD_TOKEN}"
+#               description: "Vaultservice CICD token"
 
 jobs:
   # Integration function start: Auth
