@@ -3,6 +3,13 @@ jenkins:
 
   numExecutors: 2
 
+  nodes:
+    - permanent:
+        name: "Linux agent"
+        remoteFS: "/var/jenkins"
+        numExecutors: 2
+        labelString: "linux-agent"
+
 # credentials:
 #   system:
 #     domainCredentials:
