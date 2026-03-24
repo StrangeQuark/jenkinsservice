@@ -12,6 +12,8 @@ services:
       - jenkins_home:/var/jenkins_home
     environment:
       - CASC_JENKINS_CONFIG=/var/jenkins_home/casc.yaml
+      - GITHUB_USERNAME=${GITHUB_USERNAME}
+      - GITHUB_TOKEN=${GITHUB_TOKEN}
     restart: unless-stopped
 volumes:
   jenkins_home:
