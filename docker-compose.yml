@@ -6,7 +6,7 @@ services:
       - shared-network
     container_name: jenkins-service
     ports:
-      - "6080:8080"
+      - "6100:8080"
       - "50000:50000" # Jenkins agent communication
     volumes:
       - jenkins_home:/var/jenkins_home
