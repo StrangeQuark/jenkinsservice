@@ -1,9 +1,6 @@
 jenkins:
   systemMessage: "MSINIT Jenkins initialized via JCasC"
 
-  appearance:
-    theme: "system"
-
   nodes:
     - permanent:
         name: "Linux agent"
