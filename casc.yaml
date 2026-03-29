@@ -52,11 +52,6 @@ jobs:
                   numToKeep(2)
               }
           }
-          triggers {
-              periodicFolderTrigger {
-                  interval('1h')
-              }
-          }
           factory {
               workflowBranchProjectFactory {
                   scriptPath('Jenkinsfile')
@@ -80,11 +75,6 @@ jobs:
           orphanedItemStrategy {
               discardOldItems {
                   numToKeep(2)
-              }
-          }
-          triggers {
-              periodicFolderTrigger {
-                  interval('1h')
               }
           }
           factory {
@@ -112,11 +102,6 @@ jobs:
                   numToKeep(2)
               }
           }
-          triggers {
-              periodicFolderTrigger {
-                  interval('1h')
-              }
-          }
           factory {
               workflowBranchProjectFactory {
                   scriptPath('Jenkinsfile')
@@ -140,11 +125,6 @@ jobs:
           orphanedItemStrategy {
               discardOldItems {
                   numToKeep(2)
-              }
-          }
-          triggers {
-              periodicFolderTrigger {
-                  interval('1h')
               }
           }
           factory {
@@ -172,11 +152,6 @@ jobs:
                   numToKeep(2)
               }
           }
-          triggers {
-              periodicFolderTrigger {
-                  interval('1h')
-              }
-          }
           factory {
               workflowBranchProjectFactory {
                   scriptPath('Jenkinsfile')
@@ -200,11 +175,6 @@ jobs:
           orphanedItemStrategy {
               discardOldItems {
                   numToKeep(2)
-              }
-          }
-          triggers {
-              periodicFolderTrigger {
-                  interval('1h')
               }
           }
           factory {
@@ -232,11 +202,6 @@ jobs:
                   numToKeep(2)
               }
           }
-          triggers {
-              periodicFolderTrigger {
-                  interval('1h')
-              }
-          }
           factory {
               workflowBranchProjectFactory {
                   scriptPath('Jenkinsfile')
@@ -262,11 +227,6 @@ jobs:
                   numToKeep(2)
               }
           }
-          triggers {
-              periodicFolderTrigger {
-                  interval('1h')
-              }
-          }
           factory {
               workflowBranchProjectFactory {
                   scriptPath('Jenkinsfile')
@@ -290,11 +250,6 @@ jobs:
           orphanedItemStrategy {
               discardOldItems {
                   numToKeep(2)
-              }
-          }
-          triggers {
-              periodicFolderTrigger {
-                  interval('1h')
               }
           }
           factory {
