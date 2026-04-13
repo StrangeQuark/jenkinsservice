@@ -32,7 +32,7 @@ docker-compose up --build
 ## Deployment
 If running with the MSINIT stack, it is highly recommended to use the [Gatewayservice](https://github.com/StrangeQuark/gatewayservice) to host SSL certs and route traffic to the Jenkins container
 
-<br><br><br>
+<br><br>
 
 ## License
 This project is licensed under the GNU General Public License. See `LICENSE.md` for details.
