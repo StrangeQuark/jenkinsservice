@@ -35,7 +35,7 @@ If running with the MSINIT stack, it is highly recommended to use the [Gatewayse
 <br><br>
 
 ## License
-This project is licensed under the GNU General Public License. See `LICENSE.md` for details.
+This project is licensed under the Apache License 2.0. See `LICENSE` for details.
 <br><br><br>
 
 ## Contributing
