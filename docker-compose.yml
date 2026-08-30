@@ -5,6 +5,9 @@ services:
       - jenkins-network
       - shared-network
     container_name: jenkins-service
+    labels:
+      com.msinit.log: "true"
+      com.msinit.service-name: "jenkinsservice"
     ports:
       - "6100:8080"
       - "50000:50000" # Jenkins agent communication
