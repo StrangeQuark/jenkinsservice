@@ -14,7 +14,7 @@ services:
     volumes:
       - jenkins_home:/var/jenkins_home
     environment:
-      - CASC_JENKINS_CONFIG=/var/jenkins_home/casc.yaml
+      - CASC_JENKINS_CONFIG=/usr/share/jenkins/ref/casc.yaml
       - GITHUB_USERNAME=${GITHUB_USERNAME}
       - GITHUB_TOKEN=${GITHUB_TOKEN}
       - VAULT_ENV_FILE_BASE64=${VAULT_ENV_FILE_BASE64}
