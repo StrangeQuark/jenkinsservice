@@ -17,7 +17,7 @@ credentials:
               username: "${GITHUB_USERNAME}"
               password: "${GITHUB_TOKEN}"
               description: "GitHub PAT"
-          - file: # Integration function start: Vault
+          - file:
               id: "vault-env"
               fileName: "vaultservice.env"
               secretBytes: "${VAULT_ENV_FILE_BASE64}"
@@ -29,12 +29,12 @@ credentials:
           - string:
               id: "CICD_TOKEN"
               secret: "${CICD_TOKEN}"
-              description: "Vaultservice CICD token" # Integration function end: Vault
+              description: "Vaultservice CICD token"
 
 jobs:
-  # Integration function start: Auth
   - script: >
-      multibranchPipelineJob('authservice') {
+      if (System.getenv('AUTHSERVICE_INTEGRATION') == 'true') {
+        multibranchPipelineJob('authservice') {
           displayName('authservice')
           branchSources {
               github {
@@ -55,11 +55,11 @@ jobs:
                   scriptPath('Jenkinsfile')
               }
           }
+        }
       }
-  # Integration function end: Auth
-  # Integration function start: Email
   - script: >
-      multibranchPipelineJob('emailservice') {
+      if (System.getenv('EMAILSERVICE_INTEGRATION') == 'true') {
+        multibranchPipelineJob('emailservice') {
           displayName('emailservice')
           branchSources {
               github {
@@ -80,11 +80,11 @@ jobs:
                   scriptPath('Jenkinsfile')
               }
           }
+        }
       }
-  # Integration function end: Email
-  # Integration function start: File
   - script: >
-      multibranchPipelineJob('fileservice') {
+      if (System.getenv('FILESERVICE_INTEGRATION') == 'true') {
+        multibranchPipelineJob('fileservice') {
           displayName('fileservice')
           branchSources {
               github {
@@ -105,11 +105,11 @@ jobs:
                   scriptPath('Jenkinsfile')
               }
           }
+        }
       }
-  # Integration function end: File
-  # Integration function start: Gateway
   - script: >
-      multibranchPipelineJob('gatewayservice') {
+      if (System.getenv('GATEWAYSERVICE_INTEGRATION') == 'true') {
+        multibranchPipelineJob('gatewayservice') {
           displayName('gatewayservice')
           branchSources {
               github {
@@ -130,11 +130,11 @@ jobs:
                   scriptPath('Jenkinsfile')
               }
           }
+        }
       }
-  # Integration function end: Gateway
-  # Integration function start: Logger
   - script: >
-      multibranchPipelineJob('loggerservice') {
+      if (System.getenv('LOGGERSERVICE_INTEGRATION') == 'true') {
+        multibranchPipelineJob('loggerservice') {
           displayName('loggerservice')
           branchSources {
               github {
@@ -155,11 +155,11 @@ jobs:
                   scriptPath('Jenkinsfile')
               }
           }
+        }
       }
-  # Integration function end: Logger
-  # Integration function start: React
   - script: >
-      multibranchPipelineJob('reactservice') {
+      if (System.getenv('REACTSERVICE_INTEGRATION') == 'true') {
+        multibranchPipelineJob('reactservice') {
           displayName('reactservice')
           branchSources {
               github {
@@ -180,11 +180,11 @@ jobs:
                   scriptPath('Jenkinsfile')
               }
           }
+        }
       }
-  # Integration function end: React
-  # Integration function start: Telemetry
   - script: >
-      multibranchPipelineJob('telemetryservice') {
+      if (System.getenv('TELEMETRYSERVICE_INTEGRATION') == 'true') {
+        multibranchPipelineJob('telemetryservice') {
           displayName('telemetryservice')
           branchSources {
               github {
@@ -205,11 +205,11 @@ jobs:
                   scriptPath('Jenkinsfile')
               }
           }
+        }
       }
-  # Integration function end: Telemetry
-  # Integration function start: Test
   - script: >
-      multibranchPipelineJob('testservice') {
+      if (System.getenv('TESTSERVICE_INTEGRATION') == 'true') {
+        multibranchPipelineJob('testservice') {
           displayName('testservice')
           branchSources {
               github {
@@ -230,11 +230,11 @@ jobs:
                   scriptPath('Jenkinsfile')
               }
           }
+        }
       }
-  # Integration function end: Test
-  # Integration function start: Vault
   - script: >
-      multibranchPipelineJob('vaultservice') {
+      if (System.getenv('VAULTSERVICE_INTEGRATION') == 'true') {
+        multibranchPipelineJob('vaultservice') {
           displayName('vaultservice')
           branchSources {
               github {
@@ -255,5 +255,5 @@ jobs:
                   scriptPath('Jenkinsfile')
               }
           }
+        }
       }
-  # Integration function end: Vault
