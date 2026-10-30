@@ -8,6 +8,8 @@ services:
     labels:
       com.msinit.log: "true"
       com.msinit.service-name: "jenkinsservice"
+    logging:
+      driver: json-file
     ports:
       - "6100:8080"
       - "50000:50000" # Jenkins agent communication
