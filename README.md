@@ -25,8 +25,22 @@ Clone the repository and start the service using Docker Compose:
 ```
 git clone https://github.com/StrangeQuark/jenkinsservice.git
 cd jenkinsservice
-docker-compose up --build
+cp .env.example .env
+docker compose up --build
 ```
+
+Configure `.env` before starting Jenkins:
+
+- `GITHUB_USERNAME` and `GITHUB_TOKEN`: GitHub credentials used to scan repositories.
+- `VAULTSERVICE_ENABLED`: whether pipelines retrieve their environment files from Vaultservice.
+- `VAULT_URL`: Vaultservice URL reachable from the Jenkins agent.
+- `VAULT_ENV_FILE_BASE64`: Base64-encoded Vaultservice environment file used to create the `vault-env` credential.
+- Service-specific CICD tokens: use the matching values from Vaultservice.
+- `KUBERNETES_CICD_TOKEN`: use the matching value from KubernetesService when deploying through Kubernetes.
+
+MSINIT generates integration flags and matching CICD tokens. GitHub credentials and the Vaultservice environment file must be supplied by the user.
+
+When Vaultservice is disabled, supply each pipeline's environment file using its existing deployment flow.
 <br>
 
 ## Deployment
