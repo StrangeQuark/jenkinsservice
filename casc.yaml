@@ -27,9 +27,49 @@ credentials:
               secret: "${VAULT_URL}"
               description: "Base URL for vaultservice"
           - string:
-              id: "CICD_TOKEN"
-              secret: "${CICD_TOKEN}"
-              description: "Vaultservice CICD token"
+              id: "VAULTSERVICE_ENABLED"
+              secret: "${VAULTSERVICE_ENABLED}"
+              description: "Whether pipelines retrieve environment files from Vaultservice"
+          - string:
+              id: "KUBERNETES_CICD_TOKEN"
+              secret: "${KUBERNETES_CICD_TOKEN}"
+              description: "Kubernetesservice CICD token"
+          - string:
+              id: "AUTH_CICD_TOKEN"
+              secret: "${AUTH_CICD_TOKEN}"
+              description: "Authservice CICD token"
+          - string:
+              id: "EMAIL_CICD_TOKEN"
+              secret: "${EMAIL_CICD_TOKEN}"
+              description: "Emailservice CICD token"
+          - string:
+              id: "FILE_CICD_TOKEN"
+              secret: "${FILE_CICD_TOKEN}"
+              description: "Fileservice CICD token"
+          - string:
+              id: "GATEWAY_CICD_TOKEN"
+              secret: "${GATEWAY_CICD_TOKEN}"
+              description: "Gatewayservice CICD token"
+          - string:
+              id: "LOGGER_CICD_TOKEN"
+              secret: "${LOGGER_CICD_TOKEN}"
+              description: "Loggerservice CICD token"
+          - string:
+              id: "REACT_CICD_TOKEN"
+              secret: "${REACT_CICD_TOKEN}"
+              description: "Reactservice CICD token"
+          - string:
+              id: "TELEMETRY_CICD_TOKEN"
+              secret: "${TELEMETRY_CICD_TOKEN}"
+              description: "Telemetryservice CICD token"
+          - string:
+              id: "TEST_CICD_TOKEN"
+              secret: "${TEST_CICD_TOKEN}"
+              description: "Testservice CICD token"
+          - string:
+              id: "VPN_CICD_TOKEN"
+              secret: "${VPN_CICD_TOKEN}"
+              description: "Vpnservice CICD token"
 
 jobs:
   - script: >
@@ -241,6 +281,31 @@ jobs:
                   id('vaultservice-github-source')
                   repoOwner('StrangeQuark')
                   repository('vaultservice')
+                  includes('main')
+                  scanCredentialsId('github-creds')
+              }
+          }
+          orphanedItemStrategy {
+              discardOldItems {
+                  numToKeep(2)
+              }
+          }
+          factory {
+              workflowBranchProjectFactory {
+                  scriptPath('Jenkinsfile')
+              }
+          }
+        }
+      }
+  - script: >
+      if (System.getenv('VPNSERVICE_INTEGRATION') == 'true') {
+        multibranchPipelineJob('vpnservice') {
+          displayName('vpnservice')
+          branchSources {
+              github {
+                  id('vpnservice-github-source')
+                  repoOwner('StrangeQuark')
+                  repository('vpnservice')
                   includes('main')
                   scanCredentialsId('github-creds')
               }
